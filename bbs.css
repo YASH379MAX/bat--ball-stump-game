@@ -1,0 +1,42 @@
+button{height:100px;width: 100px;
+    background-color: rgb(222, 112, 218) ;
+margin-top: 30px;
+cursor: pointer;
+border-radius: 48px;
+
+border: solid rgb(28, 15, 28);
+padding: 10px;
+
+ ;text-align: center;
+display:inline-flex; 
+  position:relative;
+  justify-content: center;
+
+}
+
+
+.buto{display: flex;justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 3rem; 
+
+}
+button:active{background-color: rgb(170, 202, 13);}
+
+h1{text-decoration: solid rebeccapurple underline;}
+
+#score{display: block;}
+
+#res{display: flex;position: absolute;
+  height: 30px;
+border-radius: 4px;
+align-items: center;
+margin-left: 70%;
+font-weight: 700;}
+
+body{background-color:cyan;}
+
+.bat{rotate: 30deg;height: 90px;}
+
+*{color:black;}
+#high{margin-left: 20%;font-size: 20px;}

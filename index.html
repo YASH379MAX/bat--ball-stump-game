@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="bbs.css">
+
+</head>
+<body><h1 style="text-align: center;">BAT BALL & STUMP</h1><br>
+  <div class="mid">
+<div class="buto">
+    <button onclick=" playgame('ball')
+    " class="but"><img src="https://static.vecteezy.com/system/resources/previews/013/362/730/original/cricket-ball-transparent-free-png.png"alt="this is a ball" class="ball"></button>
+ 
+    <button onclick="playgame('bat')">
+<img src="https://png.pngtree.com/png-vector/20240712/ourmid/pngtree-professional-cricket-bat-isolated-with-transparent-background-png-image_13067836.png "alt="this is a bat" class="bat" ></button>
+    
+    
+    <button  onclick=" playgame('stump') "
+><img src="https://www.pngarts.com/files/2/Cricket-Stumps-PNG-High-Quality-Image.png" class="stump"></button>
+</div><h2 id="bb" style="text-align: center;">Click on any image to start Game
+</h2>
+<h3 id="score" style="text-align: center;"> user:0<br>
+computer:0<br>
+ tie:0</h3>
+ <h3 id="high"></h3>
+</div>
+<button id="res" onclick="resetGame()">Restart </button></div>
+</body>
+<script>
+
+
+function generateCmChoice(){ let randomNumber=Math.random()*3;
+    if(randomNumber>=0 && randomNumber<1){return'bat' }
+else if(randomNumber>=1 && randomNumber<2){return'ball' }
+    else{return'stump'}
+    }
+
+
+function getResult(userMove , computerMove){
+if(computerMove===userMove){return'it is a tie'}
+else if ( (userMove === 'ball' && computerMove === 'bat') ||
+        (userMove === 'bat' && computerMove === 'stump') ||
+        (userMove === 'stump' && computerMove === 'ball')
+    ) {return 'computer won'}
+else {return'you won'}}
+
+
+function playgame(userMove){let computerMove=generateCmChoice();
+    result=getResult(userMove , computerMove);
+if(result==='you won'){userScore+=1;if(userScore>highestScore){highestScore=userScore}}
+else if (result==='computer won'){computerScore+=1}
+else {tieScore+=1}
+document.querySelector('#bb').innerHTML=`You chose ${userMove}.
+    Computer chose ${computerMove}.${result}`;
+document.querySelector('#score').innerHTML=`user:${userScore}<br>Computer: ${computerScore}<br>Tie: ${tieScore}`
+document.querySelector('#high').innerHTML = `Highest Score:${highestScore}`;}
+
+let userScore=0;
+let computerScore=0;
+let tieScore=0;
+
+function resetGame(){userScore=0;computerScore=0;tieScore=0;
+    document.querySelector('#score').innerHTML = `user: ${userScore}<br>Computer: ${computerScore}<br>Tie: ${tieScore}`;
+document.querySelector('#bb').innerHTML = `Click on any image to start Game`;}
+
+let highestScore=0;
+document.querySelector('#high').innerHTML = `Highest Score:${highestScore}`;
+
+</script>
+
+</html>
